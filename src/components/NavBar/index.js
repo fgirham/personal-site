@@ -1,4 +1,4 @@
-import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo-fgi.svg";
 import styles from "./Navbar.module.css";
 
