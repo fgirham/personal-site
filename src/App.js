@@ -9,7 +9,7 @@ const ThemeContext = createContext(null)
 
 function App() {
   const isLoggedIn = () => {
-    return sessionStorage.getItem('token')
+    return localStorage.getItem('session')
   }
   const [theme, setTheme] = useState('light')
 

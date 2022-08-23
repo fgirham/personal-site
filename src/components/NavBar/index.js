@@ -6,8 +6,8 @@ function NavBar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    sessionStorage.removeItem("token");
-    navigate("/");
+    localStorage.removeItem("session")
+    navigate("/login");
   };
 
   return (
@@ -31,7 +31,7 @@ function NavBar() {
         >
           Experience
         </NavLink> */}
-        {sessionStorage.getItem("token") && (
+        {localStorage.getItem("session") && (
           <span onClick={handleLogout}>Logout</span>
         )}
       </div>

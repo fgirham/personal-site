@@ -10,23 +10,26 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const onFetched = (data) => {
-    sessionStorage.setItem("token", data.token);
+    localStorage.setItem("session", data.token);
     navigate("/store");
   };
 
-  const handleLogin = (username, password) => {
-    if (username === "fgirham" && password === "password") {
-      request(
-        USER_AUTH,
-        {
-          method: "POST",
-          body: JSON.stringify({ username: "mor_2314", password: "83r5^_" }),
-        },
-        onFetched
-      );
-    } else {
+  const handleError = (response) => {
+    if (response.status === 401) {
       window.alert("Wrong username or password");
     }
+  };
+
+  const handleLogin = (username, password) => {
+    request(
+      USER_AUTH,
+      {
+        method: "POST",
+        body: JSON.stringify({ username: username, password: password }),
+      },
+      onFetched,
+      handleError
+    );
   };
 
   return (
