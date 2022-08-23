@@ -1,0 +1,14 @@
+.button {
+  padding: 8px;
+  border-radius: 18px;
+}
+
+.primary {
+  background-color: black;
+  color: white;
+}
+
+.secondary {
+  background-color: white;
+  color: black;
+}
