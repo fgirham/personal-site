@@ -31,19 +31,38 @@ nav .nav-link {
   margin-left: auto;
 }
 
-nav .nav-item {
+.nav-link > * {
   margin-left: 10px;
-}
-
-.nav-item {
   display: inline-block;
-  color: grey;
   text-align: center;
   padding: 8px;
   text-decoration: none;
 }
 
-.nav-item:hover {
+.nav-link a {
+  color: rgb(187, 187, 187);
+}
+
+.nav-link a:hover {
   color: black;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-link a.active:hover {
+  cursor: default;
+}
+
+.nav-link .active {
+  color: black;
+}
+
+.nav-link span {
+  color: rgb(255, 128, 128);
+}
+
+.nav-link span:hover {
+  color: red;
+  cursor: pointer;
+  text-decoration: none;
 }
