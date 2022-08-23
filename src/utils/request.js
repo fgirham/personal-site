@@ -1,4 +1,4 @@
-const request = (url, options, cb) => {
+const request = (url, options, cb, handleError) => {
   fetch(url, {
     headers: {
       "Content-Type": "application/json"
@@ -7,9 +7,7 @@ const request = (url, options, cb) => {
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error(
-          `This is an HTTP error: The status is ${response.status}`
-        );
+        handleError(response)
       }
       return response.json();
     })
