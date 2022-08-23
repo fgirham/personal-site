@@ -6,6 +6,7 @@ const { useState } = require("react");
 function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isPasswordVisible, setPasswordVisibility] = useState(false)
 
   const handleUsernameInput = (event) => {
     setUsername(event.target.value);
@@ -17,6 +18,13 @@ function Login(props) {
     event.preventDefault()
     props.onSubmit(username, password);
   };
+  const togglePassword = () => {
+    setPasswordVisibility(!isPasswordVisible)
+  }
+  const handleCutCopy = (e) => {
+    e.preventDefault()
+    e.nativeEvent.stopImmediatePropagation();
+  }
 
   return (
     <form className={styles["login-form"]} onSubmit={handleSubmit}>
@@ -37,13 +45,18 @@ function Login(props) {
       <div className={styles.input}>
         {/* <label for="password">Password</label> */}
         <input
-          type="password"
+          type={isPasswordVisible ? "text" : "password"}
           className={styles["input-field"]}
           value={password}
+          onCopy={handleCutCopy}
+          onCut={handleCutCopy}
           onChange={handlePasswordInput}
           placeholder="Password"
           name="password"
         />
+        <span className={styles["p-viewer"]} onClick={togglePassword}>
+          <i className={`icon fa ${isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+        </span>
       </div>
       <Button class="primary" text="Login" onClick={handleSubmit} />
       {/* <input

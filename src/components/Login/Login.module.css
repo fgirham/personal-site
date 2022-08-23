@@ -12,7 +12,6 @@
 }
 
 .input {
-  /* display: inline; */
   margin-bottom: 20px;
 }
 
@@ -22,4 +21,13 @@
   padding: 8px 16px;
   border-radius: 18px;
   border-width: 1px;
+}
+
+.p-viewer{
+  float: right;
+  margin-top: -28px;
+  margin-right: 20px;
+  position: relative;
+  z-index: 1;
+  cursor:pointer;
 }
