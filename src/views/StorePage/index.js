@@ -4,26 +4,14 @@ import { QUERY_ALL_PRODUCT } from "constants/apis";
 import { useEffect, useState } from "react";
 import StoreProduct from "components/StoreProduct";
 
+import { caption } from "./caption";
+import request from "utils/request";
+
 export default function StorePage() {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    fetch(QUERY_ALL_PRODUCT)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setProducts(data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    request(QUERY_ALL_PRODUCT, {}, setProducts)
   }, []);
 
   return (
@@ -36,6 +24,7 @@ export default function StorePage() {
             <StoreProduct key={product.id} product={product} />
           ))}
       </div>
+      {caption}
     </div>
   );
 }
