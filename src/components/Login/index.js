@@ -1,7 +1,5 @@
 import styles from "./Login.module.css";
 import Button from "components/Button";
-import { USER_AUTH } from "constants/apis";
-import fetch from "utils/request";
 
 const { useState } = require("react");
 
