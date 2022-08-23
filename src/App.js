@@ -3,6 +3,8 @@ import { createContext, useState } from 'react';
 import { useRoutes } from "react-router-dom";
 import routes from './routes'
 
+import ScrollUp from 'components/ScrollUp';
+
 const ThemeContext = createContext(null)
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
     <ThemeContext.Provider value={{theme, toggleTheme}}>
       <div className="App" id={theme}>
         {routerView}
+        <ScrollUp />
       </div>
     </ThemeContext.Provider>
   );
