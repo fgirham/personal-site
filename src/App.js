@@ -1,33 +1,21 @@
 import './App.css';
-import LandingPage from './views/LandingPage';
-import ProfilePage from 'views/ProfilePage'
-import ExperiencePage from 'views/ExperiencePage'
 import { createContext, useState } from 'react';
 import { useRoutes } from "react-router-dom";
+import routes from './routes'
 
 const ThemeContext = createContext(null)
 
 function App() {
+  const isLoggedIn = () => {
+    return sessionStorage.getItem('token')
+  }
   const [theme, setTheme] = useState('light')
 
   const toggleTheme = () => {
     setTheme(theme => theme === 'light' ? 'dark' : 'light')
   }
 
-  let routerView = useRoutes([
-    {
-      path: "/",
-      element: <LandingPage />,
-    },
-    {
-      path: "profile",
-      element: <ProfilePage />,
-    },
-    {
-      path: "experience",
-      element: <ExperiencePage />,
-    },
-  ])
+  let routerView = useRoutes(routes(isLoggedIn()))
 
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
