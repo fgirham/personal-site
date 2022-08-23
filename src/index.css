@@ -1,5 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url(//db.onlinewebfonts.com/c/cc84650569fd07dac022c55b20c66e46?family=Futura+Bk+BT);
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@font-face {
+  font-family: "Futura Bk BT";
+  src: url("https://db.onlinewebfonts.com/t/cc84650569fd07dac022c55b20c66e46.eot"); /* IE9*/
+  src: url("https://db.onlinewebfonts.com/t/cc84650569fd07dac022c55b20c66e46.eot?#iefix")
+    format("embedded-opentype");
+  /* IE6-IE8 */
+  src: url("https://db.onlinewebfonts.com/t/cc84650569fd07dac022c55b20c66e46.woff2")
+    format("woff2");
+  /* chrome firefox */
+  src: url("https://db.onlinewebfonts.com/t/cc84650569fd07dac022c55b20c66e46.woff")
+    format("woff");
+  /* chrome firefox */
+  src: url("https://db.onlinewebfonts.com/t/cc84650569fd07dac022c55b20c66e46.ttf")
+    format("truetype");
+  /* chrome firefox opera Safari, Android, iOS 4.2+*/
+  src: url("https://db.onlinewebfonts.com/t/cc84650569fd07dac022c55b20c66e46.svg#Futura Bk BT")
+    format("svg"); /* iOS 4.1- */
+}
 
 html {
   scroll-behavior: smooth;
@@ -7,15 +25,20 @@ html {
 
 body {
   margin: 0;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Futura Bk BT';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Futura Bk BT";
   margin: 0;
 }
 
@@ -51,21 +74,39 @@ h1 {
   padding: 90px 90px 40px 90px;
 }
 
-button, input {
-    overflow: visible;
+button,
+input {
+  overflow: visible;
 }
-button, input, optgroup, select, textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
-*, ::after, ::before {
+*,
+::after,
+::before {
   box-sizing: border-box;
 }
 
+img,
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
