@@ -1,28 +1,30 @@
-import './App.css';
-import { createContext, useState } from 'react';
-import { useRoutes } from "react-router-dom";
-import routes from './routes'
+import "./App.css";
+import { createContext, useEffect, useState } from "react";
+import ScrollUp from "components/ScrollUp";
+import RouterView from "./routes";
+import { useLocation } from "react-router-dom";
+import { setSession, getSession, removeSession } from "utils/auth/sessionHandler";
 
-import ScrollUp from 'components/ScrollUp';
-
-const ThemeContext = createContext(null)
+const ThemeContext = createContext(null);
 
 function App() {
-  const isLoggedIn = () => {
-    return localStorage.getItem('session')
-  }
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState("light");
+
+  const location = useLocation()
+
+  useEffect(() => {
+    const session = getSession()
+    session.isExpired ? removeSession() : setSession(session.token)
+  }, [location])
 
   const toggleTheme = () => {
-    setTheme(theme => theme === 'light' ? 'dark' : 'light')
-  }
-
-  let routerView = useRoutes(routes(isLoggedIn()))
+    setTheme((theme) => (theme === "light" ? "dark" : "light"));
+  };
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
-        {routerView}
+        <RouterView isLoggedIn={getSession().isExpired === false} />
         <ScrollUp />
       </div>
     </ThemeContext.Provider>

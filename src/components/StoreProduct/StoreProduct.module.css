@@ -38,7 +38,7 @@ img {
 }
 
 .title {
-  margin: 10px 0px;
+  margin: 10px 0;
   font-weight: 500;
   -ms-flex: 1;
   flex: 1;
@@ -52,7 +52,7 @@ img {
 }
 
 .price {
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 
 .rating {
@@ -66,4 +66,13 @@ img {
 
 .icon {
   margin-right: 5px;
+}
+
+.btn-add-cart {
+  display: flex;
+  margin-right: 0;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }

@@ -38,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Futura Bk BT";
+  font-family: "Futura Bk BT", sans-serif;
   margin: 0;
 }
 
@@ -99,7 +99,6 @@ img,
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
@@ -109,4 +108,8 @@ img,
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.icon {
+  cursor: pointer;
 }

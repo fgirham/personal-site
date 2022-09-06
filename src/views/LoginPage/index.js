@@ -1,42 +1,28 @@
 import NavBar from "components/NavBar";
 import Login from "components/Login";
-import { useNavigate } from "react-router-dom";
-
 import { caption } from "views/StorePage/caption";
-import { USER_AUTH } from "constants/apis";
-import request from "utils/request";
+
+import useLogin from "utils/auth/useLogin";
+import Spinner from "components/Spinner";
+import { useState } from "react";
 
 export default function LoginPage() {
-  const navigate = useNavigate();
+  const [isLoading, setLoadingStatus] = useState(false)
 
-  const onFetched = (data) => {
-    localStorage.setItem("session", data.token);
-    navigate("/store");
-  };
+  const { handleLogin } = useLogin();
 
-  const handleError = (response) => {
-    if (response.status === 401) {
-      window.alert("Wrong username or password");
-    }
-  };
-
-  const handleLogin = (username, password) => {
-    request(
-      USER_AUTH,
-      {
-        method: "POST",
-        body: JSON.stringify({ username: username, password: password }),
-      },
-      onFetched,
-      handleError
-    );
-  };
+  const handleSubmit = (username, password) => {
+    handleLogin(username, password, setLoadingStatus)
+  }
 
   return (
-    <div className="container">
-      <NavBar />
-      <Login onSubmit={handleLogin} />
-      {caption}
-    </div>
+    <>
+      <Spinner isVisible={isLoading} />
+      <div className="container">
+        <NavBar />
+        <Login onSubmit={handleSubmit} />
+        {caption}
+      </div>
+    </>
   );
 }

@@ -2,14 +2,14 @@ nav {
   align-items: center;
   background-color: white;
   color: black;
-  box-shadow: 0px 0px 2px #bbbbbb;
+  box-shadow: 0 0 2px #bbbbbb;
   padding: 0;
   display: flex;
   position: fixed;
   width: 100%;
   left: 0;
   top: 0;
-  z-index: 100;
+  z-index: 1;
 }
 
 .navbar-brand {
@@ -57,11 +57,11 @@ nav .nav-link {
   color: black;
 }
 
-.nav-link span {
+.nav-link .logout {
   color: rgb(255, 128, 128);
 }
 
-.nav-link span:hover {
+.nav-link .logout:hover {
   color: red;
   cursor: pointer;
   text-decoration: none;

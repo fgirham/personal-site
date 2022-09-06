@@ -1,9 +1,14 @@
 import styles from "./Button.module.css";
 
 const Button = (props) => {
+  const { type, size, value, onClick, hover } = props
+
+  const btnSize = size ? `btn-${size}` : 'btn'
+  const btnStyle = `${styles[type]} ${styles[btnSize]} ${hover ? styles["btn-hover"] : ''}`
+
   return (
-    <button className={`${styles[props.class]} ${styles.button}`} onClick={props.onClick}>
-      {props.text}
+    <button className={btnStyle} onClick={onClick}>
+      {value}
     </button>
   );
 };

@@ -1,0 +1,20 @@
+.input {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  /* margin-left: 10px; */
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 18px;
+  border-width: 1px;
+}
+
+.p-viewer{
+  float: right;
+  margin-top: -28px;
+  margin-right: 20px;
+  position: relative;
+  z-index: 1;
+  cursor:pointer;
+}

@@ -1,18 +1,36 @@
-.button {
+.btn {
   padding: 8px;
-  border-radius: 18px;
 }
 
-.primary {
+.btn-sm {
+  padding: 6px;
+  font-size: 12px;
+}
+
+.btn,
+.btn-sm {
+  border-radius: 18px;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.btn-primary {
   background-color: black;
   color: white;
 }
 
-.secondary {
+.btn-secondary {
   background-color: white;
   color: black;
 }
 
-.button:hover {
-  cursor: pointer;
+.btn-transparent {
+  background-color: transparent;
+  color: black;
+  border-width: 0;
+}
+
+.btn-hover:hover {
+  color: white;
+  background-color: black;
 }

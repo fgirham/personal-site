@@ -1,0 +1,102 @@
+.card {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    top: 70px;
+    right: 0;
+    margin-right: 20px;
+    z-index: 0;
+    background: white;
+    transition: 0.3s;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 450px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 30px 30px 20px 30px;
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 5px;
+    border-bottom: 1px solid black;
+}
+
+.image {
+    padding: 10px 0;
+    height: 70px;
+    width: 70px;
+}
+
+.title {
+    flex: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding-left: 5px;
+    text-align: left;
+    margin-right: 10px;
+    max-width: 150px;
+}
+
+.price {
+    flex: 1;
+    width: 80px;
+}
+
+.amount {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 2;
+    padding-left: 10px;
+}
+
+.total {
+    padding: 20px 10px 20px 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.remove-all {
+    padding: 0 0 20px 0;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: right;
+    color: rgb(255, 128, 128);
+    cursor: pointer;
+}
+
+.remove-all:hover {
+    color: red;
+}
+
