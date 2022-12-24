@@ -8,6 +8,7 @@ import ExperiencePage from "views/ExperiencePage";
 import StorePage from "views/StorePage";
 import LoginPage from "views/LoginPage";
 import ProductPage from "views/ProductPage";
+import Parent from "ParentChild/Parent";
 
 //Util
 import { getSession } from "utils/auth/sessionHandler";
@@ -38,5 +39,9 @@ export default function RouterView() {
       path: "login",
       element: !getSession().token ? <LoginPage /> : <Navigate to="/store" />,
     },
+    {
+      path: "parent-child",
+      element: <Parent />
+    }
   ]);
 }
