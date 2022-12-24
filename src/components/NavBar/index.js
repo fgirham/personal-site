@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { getSession } from "utils/auth/sessionHandler";
 import logo from "../../assets/logo-fgi.svg";
 import styles from "./Navbar.module.css";
@@ -11,6 +11,8 @@ import {useState} from "react";
 function NavBar() {
   const totalCartItems = useSelector(selectTotalCartItems)
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [isCartOpen, toggleOpenCart] = useState(false)
 
   const handleLogout = () => {
@@ -46,12 +48,14 @@ function NavBar() {
           >
             Experience
           </NavLink> */}
-          {!getSession().isExpired && (
+          {(!getSession().isExpired && (
             <>
               <span className={styles.logout} onClick={handleLogout}>Logout</span>
               <Button value={cartButton} type="btn-secondary" hover={true} onClick={openCart}/>
             </>
-          )}
+          )) || (location.pathname !== "/login" && (
+            <Link to="/login">Login</Link>
+          ))}
         </div>
       </nav>
     </>
