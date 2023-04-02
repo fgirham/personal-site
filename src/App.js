@@ -1,5 +1,5 @@
 import "./App.css";
-import { createContext, useEffect, useState } from "react";
+import { Suspense, createContext, useEffect, useState } from "react";
 import ScrollUp from "components/ScrollUp";
 import RouterView from "./routes";
 import { useLocation } from "react-router-dom";
@@ -24,7 +24,9 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
-        <RouterView isLoggedIn={getSession().isExpired === false} />
+        <Suspense>
+          <RouterView isLoggedIn={getSession().isExpired === false} />
+        </Suspense>
         <ScrollUp />
       </div>
     </ThemeContext.Provider>
